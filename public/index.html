@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow: hidden; height: 100%;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0; user-scalable=0;">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="/meta/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/meta/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/meta/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/meta/favicon-16x16.png">
+    <link rel="manifest" href="/meta/site.webmanifest">
+    <link rel="mask-icon" href="/meta/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Bank Analyzer</title>
+    <base href="/" />
+</head>
+<body style="overflow: scroll; height: 100%;">
+<div id="root"></div>
+<script>
+    // https://stackoverflow.com/questions/17266748/disable-the-firing-of-touchcancel-in-android-browser/47561100#47561100
+    // https://stackoverflow.com/questions/48876527/dragging-an-element-with-hammer-js-fails-on-mobile/50878715#50878715
+    // https://github.com/hammerjs/hammer.js/issues/1182
+    delete window.PointerEvent;
+</script>
+<script type="text/javascript" src="/bundle.js"></script>
+</body>
+</html>

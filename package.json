@@ -2,7 +2,6 @@
   "name": "bank_analyzer",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "dependencies": {
     "@babel/core": "^7.4.5",
     "@babel/polyfill": "^7.4.4",
@@ -31,7 +30,7 @@
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.24.0",
     "notistack": "^0.8.6",
-    "plaid": "^4.0.0",
+    "plaid": "7.x.x",
     "react": "^16.8.6",
     "react-cookies": "^0.1.1",
     "react-dom": "^16.8.6",
@@ -48,10 +47,11 @@
   },
   "main": "server/index.js",
   "scripts": {
-    "start": "./node_modules/.bin/babel-node server/index.js",
+    "start": "./node_modules/.bin/babel-node -r dotenv/config server/index.js",
     "start:webpack": "node_modules/.bin/webpack-dev-server -d --inline --hot",
     "test": "NODE_ENV=test jest --watchAll",
-    "dev": "nodemon --watch server --exec babel-node server/index.js & npm run start:webpack",
+    "dev": "nodemon --watch server --exec babel-node -r node_modules/dotenv/config server/index.js & npm run start:webpack",
+    "init:project": "bash restore.sh && cp .env.example .env",
     "build": "webpack -p --config ./webpack.config.js",
     "postinstall": "npm run build"
   },

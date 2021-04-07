@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import SinkingFundService from "../models/SinkingFundService";
-import {errorWrap} from "../utility";
+import SinkingFundService from "../models/SinkingFundService.js";
+import {errorWrap} from "../utility.js";
 const fundsRouter = express.Router();
 const jsonParser = bodyParser.json();
 

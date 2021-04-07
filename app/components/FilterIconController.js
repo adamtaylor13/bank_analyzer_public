@@ -10,8 +10,7 @@ import DatePicker from "./DatePicker";
 
 // TODO: This is really clean, we should organize like this in more places
 const FilterIconController = (props) => {
-    console.log('props', props);
-    const [showFilterDropdown, setShowFilterDropdown] = React.useState(true);
+    const [showFilterDropdown, setShowFilterDropdown] = React.useState(false);
     const [showDatePicker, setShowDatePicker] = React.useState(false);
 
     const sx = {

@@ -1,19 +1,21 @@
+require('dotenv').config(); // Load all ENV vars
+
 import express from 'express';
-import {getDB, initDB} from "./db";
-import categoryRouter from './routes/categoryRoute';
-import transactionsRouter from "./routes/transactionsRoute";
-import Category from "./models/Category";
+import {getDB, initDB} from "./db.js";
+import categoryRouter from './routes/categoryRoute.js';
+import transactionsRouter from "./routes/transactionsRoute.js";
+import Category from "./models/Category.js";
 import moment from 'moment';
-import accountsRouter from "./routes/accountsRouter";
-import fundsRouter from "./routes/fundsRouter";
-import MetadataService from "./models/Metadata";
-import Transaction from "./models/Transaction";
-import Account from "./models/Account";
-import metadataRouter from "./routes/metadataRouter";
+import accountsRouter from "./routes/accountsRouter.js";
+import fundsRouter from "./routes/fundsRouter.js";
+import MetadataService from "./models/Metadata.js";
+import Transaction from "./models/Transaction.js";
+import Account from "./models/Account.js";
+import metadataRouter from "./routes/metadataRouter.js";
 import path from 'path';
-import authRouter, {authenticate} from "./routes/authRouter";
+import authRouter, {authenticate} from "./routes/authRouter.js";
 import cookieParser from 'cookie-parser';
-import CategoryTypes from "./CategoryTypes";
+import CategoryTypes from "./CategoryTypes.js";
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -86,6 +88,9 @@ initDB().then(async () => {
         // Set the last updated check to now
         await Metadata.setLastUpdateCheck(moment());
     }
+
+    // Set for demoing purposes — not real logic
+    await Metadata.setTimeperiodFilter('2019-06');
 
     const host = process.env.PORT ? '0.0.0.0' : 'localhost';
     console.log('port', port);

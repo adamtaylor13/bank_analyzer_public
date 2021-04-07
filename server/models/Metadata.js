@@ -1,7 +1,7 @@
 import moment from 'moment';
-import {getObjectID} from "../utility";
-import Transaction from "./Transaction";
-import Category from "./Category";
+import {getObjectID} from "../utility.js";
+import Transaction from "./Transaction.js";
+import Category from "./Category.js";
 
 export default class Metadata {
     static COLLECTION_NAME = "metadata";

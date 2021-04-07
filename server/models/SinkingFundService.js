@@ -1,8 +1,8 @@
 import moment from 'moment';
-import Category from "./Category";
-import {getObjectID} from "../utility";
-import CategoryTypes from "../CategoryTypes";
-import Metadata from "./Metadata";
+import Category from "./Category.js";
+import {getObjectID} from "../utility.js";
+import CategoryTypes from "../CategoryTypes.js";
+import Metadata from "./Metadata.js";
 
 export default class SinkingFundService {
     constructor(db) {

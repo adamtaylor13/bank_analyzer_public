@@ -1,4 +1,3 @@
-import EditableBar from "./components/EditableBar";
 import moment from 'moment';
 
 /**

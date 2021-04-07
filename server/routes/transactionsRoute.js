@@ -1,16 +1,11 @@
 import express from 'express';
-import Transaction from "../models/Transaction";
+import Transaction from "../models/Transaction.js";
 import bodyParser from 'body-parser';
-import Category from "../models/Category";
-import {errorWrap} from "../utility";
+import Category from "../models/Category.js";
+import {errorWrap} from "../utility.js";
 const transactionsRouter = express.Router();
 const jsonParser = bodyParser.json();
-import fs from 'fs';
-import path from 'path';
-import Metadata from "../models/Metadata";
-const fileUpload = require('express-fileupload');
-
-transactionsRouter.use(fileUpload());
+import Metadata from "../models/Metadata.js";
 
 transactionsRouter.get('/', errorWrap(async ({ _db, query}, res) => {
     console.log('GET: transactions/');
@@ -82,19 +77,19 @@ transactionsRouter.delete('/:transactionId', jsonParser, errorWrap(async (req, r
     res.send(response);
 }));
 
-transactionsRouter.post('/receipt', errorWrap(async ({ _db, body, files, _id }, res) => {
-    console.log('POST: transactions/receipt');
-    const fileName = `receipt_${body._id}.jpg`;
-    let streamWriter = fs.createWriteStream(path.resolve(__dirname, `../../public/images/receipts/${fileName}`));
-    streamWriter.write(files.receipt.data);
-    streamWriter.end();
-
-    let TService = new Transaction(_db);
-    let response = await TService.assignReceipt(body._id, fileName);
-
-    // let FundService = new SinkingFundService(_db);
-    // let results = await FundService.saveNewFund(newFund);
-    res.send(response);
-}));
+// transactionsRouter.post('/receipt', errorWrap(async ({ _db, body, files, _id }, res) => {
+//     console.log('POST: transactions/receipt');
+//     const fileName = `receipt_${body._id}.jpg`;
+//     let streamWriter = fs.createWriteStream(path.resolve(__dirname, `../../public/images/receipts/${fileName}`));
+//     streamWriter.write(files.receipt.data);
+//     streamWriter.end();
+//
+//     let TService = new Transaction(_db);
+//     let response = await TService.assignReceipt(body._id, fileName);
+//
+//     // let FundService = new SinkingFundService(_db);
+//     // let results = await FundService.saveNewFund(newFund);
+//     res.send(response);
+// }));
 
 export default transactionsRouter;

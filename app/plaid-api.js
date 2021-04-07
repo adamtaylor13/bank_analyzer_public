@@ -8,20 +8,38 @@ export default class Plaid {
     constructor(debug = true) {
         this.PLAID_CLIENT_ID = process.env.PLAID_CLIENT_ID;
         this.PLAID_SECRET = process.env.PLAID_SECRET;
-        this.PLAID_PUBLIC_KEY = process.env.PLAID_PUBLIC_KEY;
         this.PLAID_ENV = envvar.string('PLAID_ENV', 'development');
         this.PLAID_PRODUCTS = envvar.string('PLAID_PRODUCTS', 'transactions');
-        this.PLAID_ACCESS_TOKEN = process.env.PLAID_ACCESS_TOKEN;
 
-        this.CLIENT = new plaid.Client(
-            this.PLAID_CLIENT_ID,
-            this.PLAID_SECRET,
-            this.PLAID_PUBLIC_KEY,
-            plaid.environments[this.PLAID_ENV],
-            {version: '2018-05-22'}
-        );
+        this.CLIENT = new plaid.Client({
+            clientID: this.PLAID_CLIENT_ID,
+            secret: this.PLAID_SECRET,
+            env: plaid.environments.sandbox,
+            options: {
+                version: '2018-05-22'
+            },
+        });
 
-        this.debugMode = debug;
+        const configs = {
+            user: {
+                // This should correspond to a unique id for the current user.
+                client_user_id: 'user-id',
+            },
+            client_name: 'Bank Analyzer',
+            products: ['transactions'],
+            country_codes: ['US'],
+            language: 'en',
+        };
+
+        let self = this;
+        this.CLIENT.createLinkToken(configs, function (error, createTokenResponse) {
+            if (error != null) {
+                // TODO: Handle it
+                console.log('error', error);
+            }
+            console.log('createTokenResponse', createTokenResponse);
+            self.PLAID_ACCESS_TOKEN = createTokenResponse.link_token;
+        });
     }
 
     getAccountsFromAPI() {

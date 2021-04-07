@@ -1,9 +1,9 @@
-import Transaction from "./Transaction";
+import Transaction from "./Transaction.js";
 import moment from 'moment';
-import {getObjectID} from "../utility";
-import {dollarsFloat} from "../../app/utility";
-import CategoryTypes from "../CategoryTypes";
-import SinkingFundService from "./SinkingFundService";
+import {getObjectID} from "../utility.js";
+import {dollarsFloat} from "../../app/utility.js";
+import CategoryTypes from "../CategoryTypes.js";
+import SinkingFundService from "./SinkingFundService.js";
 
 /**
  * TODO: (?) Add a "transient" property to categories that specifies that the category should not be persisted
@@ -70,13 +70,16 @@ export default class Category {
     async prePersistValidation(category) {
 
         if (!category.timeperiod || !/\d\d\d\d-\d\d/.test(category.timeperiod)) {
-            console.log('category', category);
+            console.log('Category with missing/malformed timeperiod:', category);
             throw new Error('Will not save category with missing or malformed timeperiod');
         }
 
         if (!category.type) {
-            console.log('category', category);
-            throw new Error('Will not save category without type attribute');
+            console.log('Category without type attr:', category);
+            // TODO: Not a proper solution; only placing this here as a tmp fix
+            //  to get this code up and running for demo purposes
+            category.type = CategoryTypes.DYNAMIC;
+            // throw new Error('Will not save category without type attribute');
         }
 
         if (category.type === CategoryTypes.FUND) {

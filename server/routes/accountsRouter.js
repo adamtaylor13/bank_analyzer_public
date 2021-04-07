@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import Account from "../models/Account";
-import {errorWrap} from "../utility";
+import Account from "../models/Account.js";
+import {errorWrap} from "../utility.js";
 const accountsRouter = express.Router();
 const jsonParser = bodyParser.json();
 

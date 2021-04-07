@@ -1,13 +1,14 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
 import bodyParser from 'body-parser';
-import {errorWrap} from "../utility";
-import User from '../models/User';
+import {errorWrap} from "../utility.js";
+import User from '../models/User.js';
 
 const authRouter = express.Router();
 const jsonParser = bodyParser.json();
 
-const { TOKEN_SECRET, USER_HASH } = process.env;
+const TOKEN_SECRET = process.env.BANK_ANALYZER_TOKEN_SECRET;
+const USER_HASH = process.env.USER_HASH;
 const maxCookieAge = 1000 * 60 * 60 * 24;
 
 authRouter.post('/login', jsonParser, errorWrap(async ({ body }, res) => {

@@ -1,5 +1,5 @@
-import {getObjectID} from "../utility";
-import Plaid from "../../app/plaid-api";
+import {getObjectID} from "../utility.js";
+import Plaid from "../../app/plaid-api.js";
 
 export default class Account {
     constructor(db) {

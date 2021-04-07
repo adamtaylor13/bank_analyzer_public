@@ -1,17 +1,17 @@
 import Plaid from "../../app/plaid-api.js";
 import moment from 'moment';
-import mongo from 'mongodb';
-import _ from 'underscore';
-import {getObjectID} from "../utility";
-import {filterObjectIDs} from "../filters";
-import Account from "./Account";
+import {getObjectID} from "../utility.js";
+import {filterObjectIDs} from "../filters.js";
+import Account from "./Account.js";
+
+const PLAID_CLIENT = new Plaid(true); // Only need a single instance here
 
 export default class Transaction {
     constructor(db) {
         this.db = db;
         this.collectionName = "transactions";
         this.collection = db.collection(this.collectionName);
-        this.PlaidClient = new Plaid(true);
+        this.PlaidClient = PLAID_CLIENT;
     }
 
     async saveNewTransaction(document) {
@@ -299,33 +299,37 @@ export default class Transaction {
      * @returns {Promise<Object>}
      */
     async syncTransactionsInDB() {
-        const existingTransactions = await this.findByQuery({ pending: false });
-        const existingTransactionIds = existingTransactions.map(t => t.transaction_id);
-        const newTransactions = await this.fetchTransactionsFromAPI();
+        try {
+            const existingTransactions = await this.findByQuery({pending: false});
+            const existingTransactionIds = existingTransactions.map(t => t.transaction_id);
+            const newTransactions = await this.fetchTransactionsFromAPI();
 
-        // Delete all pending transactions
-        const pendingTransactions = await this.findByQuery({ pending: true });
-        const pendingTransactionIds = pendingTransactions.map(t => t._id);
-        const self = this; // TODO: Cleanup
-        const all = pendingTransactionIds.map(id => self.deleteTransaction(id));
-        await Promise.all(all);
+            // Delete all pending transactions
+            const pendingTransactions = await this.findByQuery({pending: true});
+            const pendingTransactionIds = pendingTransactions.map(t => t._id);
+            const self = this; // TODO: Cleanup
+            const all = pendingTransactionIds.map(id => self.deleteTransaction(id));
+            await Promise.all(all);
 
-        const sinkingFundAccount = (await (new Account(this.db)).getSinkingFundAccount())[0];
+            const sinkingFundAccount = (await (new Account(this.db)).getSinkingFundAccount())[0];
 
-        // Difference is new transactions not in the DB (probably pending since we just deleted them)
-        const difference = newTransactions
-            .filter(trans => !existingTransactionIds.includes(trans.transaction_id))
-            .map(this.assignMemoToKnownTransactions(sinkingFundAccount));
+            // Difference is new transactions not in the DB (probably pending since we just deleted them)
+            const difference = newTransactions
+                .filter(trans => !existingTransactionIds.includes(trans.transaction_id))
+                .map(this.assignMemoToKnownTransactions(sinkingFundAccount));
 
-        let newTransactionsResponse = null;
-        if (difference.length > 0) {
-            let saveResults = await this.saveNewTransactions(difference).catch(err => ({ variant: 'error', err }));
-            newTransactionsResponse = { variant: 'success', message: `Saved ${saveResults.length} new transactions.`, };
-        } else {
-            newTransactionsResponse = { variant: 'info', message: 'No transactions to save.' };
+            let newTransactionsResponse = null;
+            if (difference.length > 0) {
+                let saveResults = await this.saveNewTransactions(difference).catch(err => ({variant: 'error', err}));
+                newTransactionsResponse = {variant: 'success', message: `Saved ${saveResults.length} new transactions.`,};
+            } else {
+                newTransactionsResponse = {variant: 'info', message: 'No transactions to save.'};
+            }
+
+            return newTransactionsResponse;
+        } catch (e) {
+            console.error('Error syncing transactions in DB:', e);
         }
-
-        return newTransactionsResponse;
     }
 
     async deleteTransaction(transactionId) {

@@ -1,12 +1,9 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import {errorWrap} from "../utility";
-import MetadataService from "../models/Metadata";
+import {errorWrap} from "../utility.js";
+import MetadataService from "../models/Metadata.js";
 const metadataRouter = express.Router();
 const jsonParser = bodyParser.json();
-const fileUpload = require('express-fileupload');
-
-metadataRouter.use(fileUpload());
 
 metadataRouter.get('/', errorWrap(async ({ _db }, res) => {
     console.log('GET: metadata/');

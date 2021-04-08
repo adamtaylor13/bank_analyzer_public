@@ -130,10 +130,11 @@ function App(props) {
                                 )}/>
                                 <Route exact path="/login" component={ Login }></Route>
                             </Switch>
-                            <BottomNav />
+                            { isAuthenticated ? (
+                                <BottomNav />
+                            ) : null }
                             <Alert />
                         </Container>
-                        {/* Loading Spinner */}
                         <LoadingSpinner />
                     </Box>
                 </React.Fragment>

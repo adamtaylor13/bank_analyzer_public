@@ -5,7 +5,6 @@ import { Box } from 'rebass';
 import Icon from "./Icon";
 
 const BottomNav = (props) => {
-    console.log('props', props);
 
     const navButtons = [
         { name: 'categories', icon: 'list' },
@@ -14,7 +13,6 @@ const BottomNav = (props) => {
         { name: 'transactions', icon: 'search-dollar' },
     ];
     const activeRoute = props.location.pathname.split('/')[1];
-    console.log('activeRoute', activeRoute);
 
     const sx = {
         bg: 'midnight',

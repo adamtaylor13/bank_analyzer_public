@@ -5,6 +5,7 @@ import TestDbHelper from "../app/testUtils/testDbHelper";
 import Category from "../server/models/Category";
 import createSampleTransactions from "../app/testUtils/createSampleTransactions";
 import Transaction from "../server/models/Transaction";
+import CategoryTypes from "../server/CategoryTypes";
 
 const dbHelper = new TestDbHelper();
 
@@ -75,7 +76,7 @@ describe("findByPeriod", () => {
 
 describe('createCategory()', () => {
     test('should created timePeriod for new categories', async () => {
-        const budgetItems = { name: 'Rent', budgeted: 1901.76, };
+        const budgetItems = { name: 'Rent', budgeted: 1901.76, timeperiod: '2021-04', type: CategoryTypes.DYNAMIC };
         let result = await CategoryService.createCategory(budgetItems);
         expect(result).toHaveProperty('timeperiod');
     });

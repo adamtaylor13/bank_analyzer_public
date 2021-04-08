@@ -5,7 +5,7 @@ import TestDbHelper from "../app/testUtils/testDbHelper";
 import Transaction from "../server/models/Transaction";
 import createSampleTransactions from "../app/testUtils/createSampleTransactions";
 
-jest.mock('./Metadata', function() {
+jest.mock('../server/models/Metadata.js', function() {
     const { default: mockTransactionService } = jest.requireActual('./Metadata');
     mockTransactionService.prototype.fetchTransactionsFromAPI = function () {
         return [{

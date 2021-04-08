@@ -86,7 +86,6 @@ export default class SinkingFundService {
             if (extraFilterFields) {
                 filter = { ...filter, ...extraFilterFields };
             }
-            console.log('filter', filter);
 
             return new Promise((resolve, reject) => {
                 this.collection.findOneAndUpdate({ _id }, filter, { returnOriginal: false }, (err, result) => {

@@ -75,7 +75,6 @@ export default class Category {
         }
 
         if (!category.type) {
-            console.log('Category without type attr:', category);
             // TODO: Not a proper solution; only placing this here as a tmp fix
             //  to get this code up and running for demo purposes
             category.type = CategoryTypes.DYNAMIC;

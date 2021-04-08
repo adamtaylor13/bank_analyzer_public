@@ -132,7 +132,6 @@ export default class Transaction {
             if (!fields.budget_category) {
                 delete filter.$set.budget_category;
                 filter.$unset = { 'budget_category': 1 };
-                console.log('filter because budget_category is empty', filter);
             }
 
             return new Promise((resolve, reject) => {
@@ -328,7 +327,12 @@ export default class Transaction {
 
             return newTransactionsResponse;
         } catch (e) {
-            console.error('Error syncing transactions in DB:', e);
+            if (e.error_code === 'PRODUCT_NOT_READY') {
+                // Just a problem with Plaid's sandbox env. Basically we spun up an access token and their
+                // env wasn't ready for requests yet. Kinda weird, but also not a big deal.
+            } else {
+                console.error('Error syncing transactions in DB:', e);
+            }
         }
     }
 

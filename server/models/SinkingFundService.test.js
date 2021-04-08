@@ -6,6 +6,28 @@ import TestDbHelper from "../../app/testUtils/testDbHelper";
 import SinkingFundService from "./SinkingFundService";
 import Category from "./Category";
 
+jest.mock('./Metadata.js', function() {
+    const { default: mockMetadata } = jest.requireActual('./Metadata.js');
+    mockMetadata.prototype.get = function () {
+        return {
+            "last_updated" : 1617759471000,
+            "income" : 4000.00,
+            "timeperiods" : [
+                "2019-06",
+                "2019-05",
+                "2019-04",
+                "2019-03",
+                "2019-02",
+                "2019-01",
+                "2019-07",
+                "2019-08"
+            ],
+            "selectedTimeperiod" : "2019-06"
+        }
+    };
+    return mockMetadata;
+});
+
 const dbHelper = new TestDbHelper();
 
 beforeAll(async () => {
@@ -33,7 +55,7 @@ describe("findById", () => {
     });
 
     test("should return null if a document with the provided ID could not be found", async () => {
-        const result = await FundService.findById("123456789");
+        const result = await FundService.findById("123456789012");
         expect(result).toBeNull();
     });
 });

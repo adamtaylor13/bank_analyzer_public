@@ -59,7 +59,9 @@
     "transform": {
       "^.+\\.jsx$": "babel-jest",
       "^.+\\.js$": "babel-jest"
-    }
+    },
+    "setupFiles": ["dotenv/config"],
+    "testEnvironment": "node"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

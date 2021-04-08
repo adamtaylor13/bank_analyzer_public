@@ -1,23 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import TableBase from "./TableBase";
-import Rows from "./Rows";
 import Icon from "../../Icon";
 import {toDollars} from "../../../utility";
 import moment from 'moment';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
 import {isMobileView} from "../../../reducers";
-import {
-    Box,
-    Card,
-    Image,
-    Heading,
-    Text,
-    Flex
-} from 'rebass';
+import {Flex, Text} from 'rebass';
 import TableRowBase from "./TableRowBase";
 import Cell from "./Cell";
 

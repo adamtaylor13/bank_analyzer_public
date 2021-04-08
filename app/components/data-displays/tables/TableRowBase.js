@@ -1,15 +1,7 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
-import TableRow from '@material-ui/core/TableRow';
-import {
-    Box,
-    Card,
-    Image,
-    Heading,
-    Text,
-    Flex
-} from 'rebass';
+import {withRouter} from 'react-router-dom';
+import {makeStyles} from '@material-ui/core/styles';
+import {Flex} from 'rebass';
 
 
 const useStyles = makeStyles(theme => ({

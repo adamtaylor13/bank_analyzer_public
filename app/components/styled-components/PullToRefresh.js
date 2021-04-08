@@ -1,6 +1,6 @@
 import React from 'react';
 import Hammer from 'react-hammerjs';
-import { Box } from 'rebass';
+import {Box} from 'rebass';
 import Icon from "../Icon";
 
 const PullToRefresh = (props) => {

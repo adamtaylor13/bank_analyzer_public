@@ -1,5 +1,5 @@
-import { MongoClient } from "mongodb";
-import { MongoMemoryServer } from "mongodb-memory-server";
+import {MongoClient} from "mongodb";
+import {MongoMemoryServer} from "mongodb-memory-server";
 
 // Extend the default timeout so MongoDB binaries can download when first run
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 60000;

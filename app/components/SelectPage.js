@@ -1,13 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import {
-    Box,
-    Card,
-    Image,
-    Heading,
-    Text,
-    Flex,
-} from 'rebass';
-import { Input, Label, Select, Textarea } from '@rebass/forms';
+import React from 'react';
+import {Box,} from 'rebass';
 import Navbar from "./Navbar";
 
 const SelectPage = (props) => {

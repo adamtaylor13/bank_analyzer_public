@@ -1,21 +1,13 @@
-import React, { useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {_try, formatDate, toDollars} from "../../utility";
-import { Redirect } from "react-router-dom";
-import { selectCategories} from "../../reducers";
+import {Redirect} from "react-router-dom";
+import {selectCategories} from "../../reducers";
 import BottomBarButton from "../styled-components/BottomBarButton";
 import {queueAlert} from "../../actions/actions";
 import {removeAdjustment, updateCategory} from "../../actions/api";
 import Navbar from "../Navbar";
-import {
-    Box,
-    Card,
-    Image,
-    Heading,
-    Text,
-    Flex,
-} from 'rebass';
-import { Input, Label, Select, Textarea } from '@rebass/forms';
+import {Box, Flex, Text,} from 'rebass';
 import EditableBar from "../EditableBar";
 import StackSlider from "../StackSlider";
 import Icon from "../Icon";

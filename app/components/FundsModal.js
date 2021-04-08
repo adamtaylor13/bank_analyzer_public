@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
+import React, {useEffect, useState} from 'react';
+import {connect} from 'react-redux';
+import {compose} from 'redux';
 import Container from '@material-ui/core/Container';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
-import TextField from '@material-ui/core/TextField';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { selectFunds} from "../reducers";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {selectFunds} from "../reducers";
 import moment from 'moment';
 import {deleteFund, updateFund} from "../actions/api";
 

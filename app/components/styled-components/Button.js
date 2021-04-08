@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button as RebassButton } from 'rebass';
-import { withRouter } from 'react-router-dom';
+import {Button as RebassButton} from 'rebass';
+import {withRouter} from 'react-router-dom';
 import Icon from "../Icon";
 
 const Button = (props) => {

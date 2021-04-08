@@ -1,6 +1,5 @@
 import moment from 'moment';
 import {getObjectID} from "../utility.js";
-import Transaction from "./Transaction.js";
 import Category from "./Category.js";
 
 export default class Metadata {

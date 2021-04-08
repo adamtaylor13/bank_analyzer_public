@@ -1,22 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 // import Button from "../styled-components/Button";
 import {login} from "../../actions/api";
 import {isAuthenticated} from "../../reducers";
-import { Redirect } from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import {authenticateUser} from "../../actions/authCookie";
-import {
-    Box,
-    Card,
-    Image,
-    Heading,
-    Text,
-    Flex,
-    Button,
-} from 'rebass';
-import { Input, Label, Select, Textarea } from '@rebass/forms';
+import {Box, Button, Flex, Heading,} from 'rebass';
+import {Input, Label} from '@rebass/forms';
 
 const mapStateToProps = state => {
     return {

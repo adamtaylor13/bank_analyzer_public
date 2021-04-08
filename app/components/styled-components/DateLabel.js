@@ -1,6 +1,6 @@
 import React from 'react';
 import MaterialUIPicker from "../DatePicker";
-import { Input } from '@rebass/forms';
+import {Input} from '@rebass/forms';
 
 const DateLabel = (props) => {
     const { onClick, onDateChange, ...rest } = props;

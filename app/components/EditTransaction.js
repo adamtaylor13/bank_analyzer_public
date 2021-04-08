@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react';
-import { connect } from 'react-redux';
-import { makeStyles } from '@material-ui/core/styles';
+import React, {useEffect, useRef} from 'react';
+import {connect} from 'react-redux';
+import {makeStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import {selectAccounts, selectCategories} from "../reducers";
 import {deleteTransaction, updateTransaction} from "../actions/api";
@@ -9,21 +9,15 @@ import {_try, toDollars} from "../utility";
 import Icon from "./Icon";
 import IconButton from '@material-ui/core/IconButton';
 import Receipt from "./Receipt";
-import { withRouter } from 'react-router-dom';
+import {Redirect, withRouter} from 'react-router-dom';
 import withTransactions from "./higher-order/withTransactions";
-import { Redirect } from "react-router-dom";
 import Button from "./styled-components/Button";
 import Fab from '@material-ui/core/Fab';
 import BottomBarButton from "./styled-components/BottomBarButton";
 import Navbar from "./Navbar";
 import OffsetsTable from "./data-displays/tables/OffsetsTable";
-import {
-    Box,
-    Heading,
-    Text,
-    Flex,
-} from 'rebass';
-import { Input, Label} from '@rebass/forms';
+import {Box, Flex, Heading, Text,} from 'rebass';
+import {Input, Label} from '@rebass/forms';
 import EditableBar from "./EditableBar";
 import StackSlider from "./StackSlider";
 import theme from "../theme";

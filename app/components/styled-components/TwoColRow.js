@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, Flex,} from 'rebass';
+import {Flex, Text,} from 'rebass';
 
 const TwoColRow = (props) => {
     return (

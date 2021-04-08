@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
+import {connect} from 'react-redux';
 import green from '@material-ui/core/colors/green';
 import amber from '@material-ui/core/colors/amber';
 import Snackbar from '@material-ui/core/Snackbar';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import Icon from "./Icon";
-import {selectActiveAlert, selectAlertOpenStatus, selectAlerts} from "../reducers";
+import {selectActiveAlert, selectAlertOpenStatus} from "../reducers";
 import {dequeueAlert} from "../actions/actions";
 
 

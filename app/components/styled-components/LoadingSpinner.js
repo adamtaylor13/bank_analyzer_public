@@ -1,15 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {
-    Box,
-    Card,
-    Image,
-    Heading,
-    Text,
-    Flex,
-} from 'rebass';
+import {Flex, Heading,} from 'rebass';
 import Icon from "../Icon";
-import {isAppProcessing } from "../../reducers";
+import {isAppProcessing} from "../../reducers";
 
 const mapStateToProps = state => {
     return {

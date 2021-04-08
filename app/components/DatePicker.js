@@ -1,19 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
-import {
-    Box,
-    Card,
-    Image,
-    Heading,
-    Text,
-    Flex,
-    Button,
-} from 'rebass';
-import { Input, Label, Select, Textarea } from '@rebass/forms';
+import {Box, Button, Flex, Heading, Text,} from 'rebass';
 import Icon from "./Icon";
-import Navbar from "./Navbar";
-import EditableBar from "./EditableBar";
 
 dayjs.extend(advancedFormat);
 

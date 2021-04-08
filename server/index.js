@@ -16,6 +16,7 @@ import path from 'path';
 import authRouter, {authenticate} from "./routes/authRouter.js";
 import cookieParser from 'cookie-parser';
 import CategoryTypes from "./CategoryTypes.js";
+
 const app = express();
 const port = process.env.PORT || 3000;
 

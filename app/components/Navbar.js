@@ -1,22 +1,13 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
+import {connect} from 'react-redux';
 import BudgetPeriodSelect from "./BudgetPeriodSelect";
-import { makeStyles} from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import {isMobileView} from "../reducers";
 import Icon from "./Icon";
 import Button from "./styled-components/Button";
-import { views } from './views/View';
-import { withRouter } from 'react-router-dom';
-import {
-    Box,
-    Card,
-    Image,
-    Heading,
-    Text,
-    Flex
-} from 'rebass';
+import {views} from './views/View';
+import {withRouter} from 'react-router-dom';
+import {Box, Flex, Heading, Text} from 'rebass';
 import Drawer from "./Drawer";
 import NavLink from "./NavLink";
 import FilterIconController from "./FilterIconController";

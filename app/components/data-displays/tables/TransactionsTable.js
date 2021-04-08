@@ -1,27 +1,22 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
 import withFilter from "../../higher-order/withFilter";
 import {defaultTransactionSort, toDollars} from "../../../utility";
 import Icon from "../../Icon";
 import TableBase from "./TableBase";
 import {isMobileView, listCategoryNames} from "../../../reducers";
-import {
-    Box,
-    Heading,
-    Text,
-    Flex,
-} from 'rebass';
+import {Box, Flex, Heading, Text,} from 'rebass';
 import TableRowBase from "./TableRowBase";
 import Cell from "./Cell";
 import BottomBarButton from "../../styled-components/BottomBarButton";
 import PaperBox from "../../styled-components/PaperBox";
 import Dialog from '@material-ui/core/Dialog';
-import { Label, Select } from '@rebass/forms';
+import {Label, Select} from '@rebass/forms';
 import {fetchSyncTransactions, updateTransactionsMulti} from "../../../actions/api";
 import useLongPress from "../../higher-order/useLongPress";
 import Button from "../../styled-components/Button";
-import {activateFilter, deactivateFilter, setCategories} from "../../../actions/actions";
+import {activateFilter, deactivateFilter} from "../../../actions/actions";
 import PullToRefresh from "../../styled-components/PullToRefresh";
 
 

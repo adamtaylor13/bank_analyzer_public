@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-    Box,
-    Card,
-    Image,
-    Heading,
-    Text,
-    Flex,
-    Button
-} from 'rebass';
+import {Button, Heading} from 'rebass';
 import PaperBox from "./styled-components/PaperBox";
 
 const DeletePrompt = (props) => {

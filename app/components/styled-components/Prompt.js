@@ -2,16 +2,7 @@ import React from 'react';
 import PaperBox from "./PaperBox";
 import Dialog from '@material-ui/core/Dialog';
 import Icon from "../Icon";
-import {toDollars} from "../../utility";
-import {
-    Box,
-    Card,
-    Image,
-    Heading,
-    Text,
-    Flex,
-    Button,
-} from 'rebass';
+import {Box, Button, Heading, Text,} from 'rebass';
 import BtnFull from "./BtnFull";
 
 const Prompt = (props) => {

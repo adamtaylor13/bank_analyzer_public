@@ -1,11 +1,9 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import {isMobileView} from "../../reducers";
 import TransactionsTable from "../data-displays/tables/TransactionsTable";
 import Navbar from "../Navbar";
-import {
-    Button,
-} from 'rebass';
+import {Button,} from 'rebass';
 
 const mapStateToProps = state => {
     return { isMobile: isMobileView(state) }

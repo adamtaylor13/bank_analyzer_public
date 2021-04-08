@@ -1,11 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import dayjs from 'dayjs';
-import { Box, Flex } from 'rebass';
+import {Box, Flex} from 'rebass';
 import Icon from "./Icon";
 import theme from "../theme";
 import Button from "./styled-components/Button";
-import { selectFilters, selectUserSelectedTimeperiod} from "../reducers";
+import {selectFilters, selectUserSelectedTimeperiod} from "../reducers";
 import DatePicker from "./DatePicker";
 
 // TODO: This is really clean, we should organize like this in more places

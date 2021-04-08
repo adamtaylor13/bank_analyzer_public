@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-    Box,
-    Card,
-    Image,
-    Heading,
-    Text,
-    Flex
-} from 'rebass';
+import {Box} from 'rebass';
 
 
 const Cell = (props) => {

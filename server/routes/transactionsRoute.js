@@ -3,9 +3,10 @@ import Transaction from "../models/Transaction.js";
 import bodyParser from 'body-parser';
 import Category from "../models/Category.js";
 import {errorWrap} from "../utility.js";
+import Metadata from "../models/Metadata.js";
+
 const transactionsRouter = express.Router();
 const jsonParser = bodyParser.json();
-import Metadata from "../models/Metadata.js";
 
 transactionsRouter.get('/', errorWrap(async ({ _db, query}, res) => {
     console.log('GET: transactions/');

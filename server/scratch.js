@@ -1,7 +1,6 @@
 'use strict';
 
 import {getDB, initDB} from "./db";
-import Transaction from "./models/Transaction";
 import MetadataService from "./models/Metadata";
 
 async function run() {

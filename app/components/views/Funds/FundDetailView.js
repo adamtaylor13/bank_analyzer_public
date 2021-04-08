@@ -1,32 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import React, {useEffect, useState} from 'react';
+import {connect} from 'react-redux';
 import {activateFund, deleteFund, updateFund} from "../../../actions/api";
 import Dialog from '@material-ui/core/Dialog';
-import {isAppLoading, selectFundById, selectFunds, selectUnaccountedMoneyInSinkingFund} from "../../../reducers";
-import {Redirect } from "react-router-dom";
+import {isAppLoading, selectFundById, selectUnaccountedMoneyInSinkingFund} from "../../../reducers";
+import {Redirect} from "react-router-dom";
 import Navbar from "../../Navbar";
 import BottomBarButton from "../../styled-components/BottomBarButton";
 import EditableBar from "../../EditableBar";
-import {
-    Box,
-    Card,
-    Image,
-    Heading,
-    Text,
-    Flex,
-    Button
-} from 'rebass';
-import { Input, Label, Select, Textarea, Radio } from '@rebass/forms';
+import {Box, Button, Flex, Heading, Text} from 'rebass';
+import {Label, Radio} from '@rebass/forms';
 import Icon from "../../Icon";
 import DollarInput from "../../styled-components/DollarInput";
 import DatePicker from "../../DatePicker";
 import PaperBox from "../../styled-components/PaperBox";
-import LoadingScreen from "../LoadingScreen";
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime'
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 import {toDollars} from "../../../utility";
-import BtnFull from "../../styled-components/BtnFull";
 import Prompt from "../../styled-components/Prompt";
 
 dayjs.extend(relativeTime);

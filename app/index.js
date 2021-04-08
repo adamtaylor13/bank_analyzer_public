@@ -4,12 +4,12 @@ import App from './app';
 import * as serviceWorker from './serviceWorker';
 
 // State / Redux stuff
-import { Provider } from 'react-redux';
+import {Provider} from 'react-redux';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from "react-router-dom";
-import { createLogger } from 'redux-logger';
+import {BrowserRouter} from "react-router-dom";
+import {createLogger} from 'redux-logger';
 import thunkMiddleware from 'redux-thunk'
-import { createStore, applyMiddleware } from 'redux'
+import {applyMiddleware, createStore} from 'redux'
 import rootReducer from './reducers'
 import {checkWidth} from "./actions/mobile";
 import {authenticateUser} from "./actions/authCookie";

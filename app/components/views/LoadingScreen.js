@@ -1,14 +1,5 @@
 import React from 'react';
-import {
-    Box,
-    Card,
-    Image,
-    Heading,
-    Text,
-    Flex,
-    Button,
-} from 'rebass';
-import { Input, Label, Select, Textarea, Radio } from '@rebass/forms';
+import {Flex, Heading,} from 'rebass';
 
 const Loading = props => {
     return (

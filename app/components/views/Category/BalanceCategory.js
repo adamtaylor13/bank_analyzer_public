@@ -1,14 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import {Box, Heading, Text, Flex} from 'rebass';
+import {connect} from 'react-redux';
+import {Box, Flex, Heading, Text} from 'rebass';
 import withCategoryFromUrl from "../../higher-order/withCategoryFromUrl";
 import {dollarsFloat, toDollars} from "../../../utility";
 import StackSlider from "../../StackSlider";
 import Navbar from "../../Navbar";
 import Icon from "../../Icon";
-import {
-    selectCategories
-} from "../../../reducers";
+import {selectCategories} from "../../../reducers";
 import Button from "../../styled-components/Button";
 import DollarInput from "../../styled-components/DollarInput";
 import BottomBarButton from "../../styled-components/BottomBarButton";

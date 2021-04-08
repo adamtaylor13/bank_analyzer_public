@@ -3,7 +3,7 @@ import Container from '@material-ui/core/Container';
 import Card from '@material-ui/core/Card';
 import {noInterestPaid, noOffsetTransactions, noPaychecks} from "../../server/filters";
 import withTransactions from "./higher-order/withTransactions";
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import {sortByDate, toDollars} from "../utility";
 import PaperHeader from "./PaperHeader";
 

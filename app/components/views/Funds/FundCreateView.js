@@ -1,23 +1,14 @@
 import moment from 'moment';
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
-import Grid from '@material-ui/core/Grid';
+import React, {useEffect, useState} from 'react';
+import {connect} from 'react-redux';
 import Typography from '@material-ui/core/Typography';
 import BottomBarButton from "../../styled-components/BottomBarButton";
 import {createNewFund} from "../../../actions/api";
 import DollarInput from "../../styled-components/DollarInput";
-import DateLabel from "../../styled-components/DateLabel";
 import Navbar from "../../Navbar";
 import EditableBar from "../../EditableBar";
-import {
-    Box,
-    Card,
-    Image,
-    Heading,
-    Text,
-    Flex,
-} from 'rebass';
-import { Input, Label, Select, Textarea } from '@rebass/forms';
+import {Text,} from 'rebass';
+import {Input, Label} from '@rebass/forms';
 import DatePicker from "../../DatePicker";
 
 const mapStateToProps = state => {

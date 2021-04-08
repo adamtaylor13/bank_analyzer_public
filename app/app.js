@@ -1,31 +1,24 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import React, {useEffect} from 'react';
+import {connect} from 'react-redux';
 
 import './App.scss';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
-import { makeStyles } from '@material-ui/core/styles';
-import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import {makeStyles} from '@material-ui/core/styles';
+import {MuiPickersUtilsProvider} from '@material-ui/pickers';
 import MomentUtils from '@date-io/moment';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-import { far } from '@fortawesome/free-regular-svg-icons';
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {fas} from '@fortawesome/free-solid-svg-icons';
+import {far} from '@fortawesome/free-regular-svg-icons';
 import Alert from "./components/Alert";
 import {checkWidth} from "./actions/mobile";
 import {isAppLoading, isAuthenticated, isMobileView} from "./reducers";
-import { Route, Switch, Redirect } from "react-router-dom";
-import { views } from './components/views/View';
+import {Redirect, Route, Switch} from "react-router-dom";
+import {views} from './components/views/View';
 import Login from "./components/views/Login";
-import { ThemeProvider } from 'theme-ui';
+import {ThemeProvider} from 'theme-ui';
 import theme from "./theme";
-import {
-    Box,
-    Card,
-    Image,
-    Heading,
-    Text,
-    Flex
-} from 'rebass';
+import {Box} from 'rebass';
 import LoadingScreen from "./components/views/LoadingScreen";
 import LoadingSpinner from "./components/styled-components/LoadingSpinner";
 import BottomNav from "./components/BottomNav";

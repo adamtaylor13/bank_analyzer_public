@@ -1,20 +1,13 @@
 import React from 'react';
 import {isMobileView, selectAdditionalIncome, selectIncome} from "../../../reducers";
 import TableBase from "./TableBase";
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import Cell from "./Cell";
-import {
-    Box,
-    Heading,
-    Text,
-    Flex
-} from 'rebass';
+import {Box, Flex, Text} from 'rebass';
 import {toDollars, totalAdjustments} from "../../../utility";
 import TableRowBase from "./TableRowBase";
 import CategoryTypes from "../../../../server/CategoryTypes";
 import Icon from "../../Icon";
-import TwoColRow from "../../styled-components/TwoColRow";
-import ToDollars from "../../styled-components/ToDollars";
 
 const mapStateToProps = state => {
     return {

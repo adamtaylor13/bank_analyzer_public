@@ -1,17 +1,21 @@
 import {
+    addNewCategory,
     appendFund,
-    setAccounts,
-    setCategories,
-    setFunds,
-    setTransactions,
-    queueAlert,
-    updateTransactionSuccess,
-    removeFund,
     onFundUpdateSuccess,
     onMultiFundUpdateSuccess,
+    queueAlert,
     removeCategory,
+    removeFund,
+    setAccounts,
+    setAppProcessing,
+    setAuth,
+    setCategories,
+    setFunds,
     setMetadata,
-    updateCategorySuccess, setAuth, addNewCategory, updateTransactionSuccessMulti, setAppProcessing
+    setTransactions,
+    updateCategorySuccess,
+    updateTransactionSuccess,
+    updateTransactionSuccessMulti
 } from "./actions";
 import {authenticateUser} from "./authCookie";
 

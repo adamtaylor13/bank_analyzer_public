@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, forwardRef } from 'react';
+import React, {forwardRef, useEffect, useRef, useState} from 'react';
 import Divider from '@material-ui/core/Divider';
 
 const TextDivider = forwardRef(({ text, offset }, ref) => {

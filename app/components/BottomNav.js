@@ -1,7 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { Box } from 'rebass';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
+import {Box} from 'rebass';
 import Icon from "./Icon";
 
 const BottomNav = (props) => {

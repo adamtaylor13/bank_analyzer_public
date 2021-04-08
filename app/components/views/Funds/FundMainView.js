@@ -1,35 +1,23 @@
 import moment from 'moment';
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import {createNewFund, syncAccounts, updateAccount} from "../../../actions/api";
 import {
-    selectAccounts, selectActivatedForMonth,
+    selectAccounts,
+    selectActivatedForMonth,
     selectFunds,
     selectSinkingFundAccount,
     selectUnaccountedMoneyInSinkingFund
 } from "../../../reducers";
 import {toDollars} from "../../../utility";
-import PaperHeader from "../../PaperHeader";
-import PaperContainer from "../../PaperContainer";
 import Icon from "../../Icon";
-import FundsTable from "../../data-displays/tables/FundsTable";
-import Fab, {FabWrapper} from "../../styled-components/Fab";
+import Fab from "../../styled-components/Fab";
 import Navbar from "../../Navbar";
-import {
-    Box,
-    Card,
-    Image,
-    Heading,
-    Text,
-    Flex,
-} from 'rebass';
-import { Input, Label, Select, Textarea } from '@rebass/forms';
-import TableRowBase from "../../data-displays/tables/TableRowBase";
+import {Box, Flex, Heading, Text,} from 'rebass';
 import Button from "../../styled-components/Button";
 import BtnFull from "../../styled-components/BtnFull";
 

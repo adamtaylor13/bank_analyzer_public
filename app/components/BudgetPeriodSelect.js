@@ -1,17 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import FormControl from '@material-ui/core/FormControl';
-import { updateSelectedTimePeriod} from "../actions/api";
-import {
-    Box,
-    Card,
-    Image,
-    Heading,
-    Text,
-    Flex,
-} from 'rebass';
-import { Label, Select } from '@rebass/forms';
-import { selectTimeperiods, selectUserSelectedTimeperiod} from "../reducers";
+import {updateSelectedTimePeriod} from "../actions/api";
+import {Box,} from 'rebass';
+import {Label, Select} from '@rebass/forms';
+import {selectTimeperiods, selectUserSelectedTimeperiod} from "../reducers";
 import {SET_NAVBAR_SLIDER_IS_OPEN} from "./Navbar";
 
 const mapDispatchToProps = (dispatch, ownProps) => {

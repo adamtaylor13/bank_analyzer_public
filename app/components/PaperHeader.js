@@ -1,11 +1,8 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {compose} from 'redux';
 import Button from '@material-ui/core/Button';
 import {makeStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import {spacing} from '@material-ui/system';
 import Icon from "./Icon";
 import Box from '@material-ui/core/Box';
 

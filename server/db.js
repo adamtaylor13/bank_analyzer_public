@@ -1,4 +1,5 @@
 import mongo from 'mongodb';
+
 const { MongoClient } = mongo;
 
 const { DB_URI, DB_NAME } = process.env;

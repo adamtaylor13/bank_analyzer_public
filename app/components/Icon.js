@@ -1,17 +1,10 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import amber from '@material-ui/core/colors/amber';
 import green from '@material-ui/core/colors/green';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import theme from "../theme";
-import {
-    Box,
-    Card,
-    Image,
-    Heading,
-    Text,
-    Flex,
-} from 'rebass';
+import {Box,} from 'rebass';
 
 const useStyles = makeStyles(theme => ({
     left: {

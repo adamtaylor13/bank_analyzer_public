@@ -6,8 +6,8 @@ import Collapse from '@material-ui/core/Collapse';
 import ToDollars from "../utility";
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import { makeStyles } from '@material-ui/core/styles';
-import { sortByDate } from "../../server/utility";
+import {makeStyles} from '@material-ui/core/styles';
+import {sortByDate} from "../../server/utility";
 import TransactionCard from "./TransactionCard";
 import {thisMonth} from "../../server/filters";
 

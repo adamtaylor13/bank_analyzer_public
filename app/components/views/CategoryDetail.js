@@ -7,14 +7,12 @@ import {activateFilter, deactivateFilter} from "../../actions/actions";
 import TransactionsTable from "../data-displays/tables/TransactionsTable";
 import Navbar from "../Navbar";
 import {deleteCategory} from "../../actions/api";
-import {Box, Flex, Text, Heading} from 'rebass';
+import {Box, Flex, Heading, Text} from 'rebass';
 import Cell from "../data-displays/tables/Cell";
-import EditableBar from "../EditableBar";
 import Button, {ButtonLink} from "../styled-components/Button";
 import Icon from "../Icon";
 import CategoryTypes from "../../../server/CategoryTypes";
 import Prompt from "../styled-components/Prompt";
-import BtnFull from "../styled-components/BtnFull";
 
 const mapStateToProps = state => {
     return {

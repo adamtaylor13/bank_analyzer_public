@@ -1,18 +1,13 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import {fetchSyncTransactions, syncAccounts, updateIncome} from "../../actions/api";
 import {queueAlert, setAppProcessing} from "../../actions/actions";
 import Navbar from "../Navbar";
-import {
-    Box,
-    Text,
-    Flex
-} from 'rebass';
+import {Text} from 'rebass';
 import EditableBar from "../EditableBar";
-import {toDollars} from "../../utility";
-import {BarLabel, BarText} from "./EditCategory";
+import {BarLabel} from "./EditCategory";
 import {isAppProcessing, selectIncome} from "../../reducers";
 import DollarInput from "../styled-components/DollarInput";
 import BottomBarButton from "../styled-components/BottomBarButton";

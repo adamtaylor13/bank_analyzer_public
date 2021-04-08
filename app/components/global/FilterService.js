@@ -1,8 +1,10 @@
 import {
-    isOffset, isPending,
-    noCreditCardPayments, noFundCredits,
+    isPending,
+    noCreditCardPayments,
+    noFundCredits,
     noInterestPaid,
-    noPaychecks, noTransfers,
+    noPaychecks,
+    noTransfers,
     uncategorizedTransactionsOnly
 } from "../../../server/filters";
 

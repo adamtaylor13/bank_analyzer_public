@@ -1,16 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import dayjs from 'dayjs';
-import {
-    Box,
-    Card,
-    Image,
-    Heading,
-    Text,
-    Flex,
-} from 'rebass';
-import { Input, Label, Select, Textarea, Checkbox } from '@rebass/forms';
-import StackSlider from "../StackSlider";
+import {Box, Flex, Text,} from 'rebass';
+import {Checkbox, Input, Label, Select} from '@rebass/forms';
 import Navbar from "../Navbar";
 import EditableBar from "../EditableBar";
 import BottomBarButton from "../styled-components/BottomBarButton";

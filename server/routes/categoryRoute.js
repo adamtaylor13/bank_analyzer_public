@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import Category from "../models/Category.js";
 import {errorWrap} from "../utility.js";
 import Metadata from "../models/Metadata.js";
+
 const categoryRouter = express.Router();
 const jsonParser = bodyParser.json();
 

@@ -1,16 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { makeStyles } from '@material-ui/core/styles';
+import {connect} from 'react-redux';
+import {makeStyles} from '@material-ui/core/styles';
 import CategoryTable from "../data-displays/tables/CategoryTable";
 import Fab from "../styled-components/Fab";
 import Navbar from "../Navbar";
 import Typography from '@material-ui/core/Typography';
-import {
-    Box,
-    Text,
-    Heading,
-    Flex
-} from 'rebass';
+import {Box, Flex, Heading, Text} from 'rebass';
 import {
     amountBudgetedForMonth,
     amountSpentThisMonth,
@@ -22,7 +17,6 @@ import TwoColRow from "../styled-components/TwoColRow";
 import ToDollars from "../styled-components/ToDollars";
 import Icon from "../Icon";
 import Prompt from "../styled-components/Prompt";
-import Button from "../styled-components/Button";
 import {toDollars} from "../../utility";
 
 const useStyles = makeStyles(theme => ({

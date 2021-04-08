@@ -1,7 +1,7 @@
 /* global describe, test, it, beforeAll, afterAll, beforeEach, afterEach, expect */
 import "core-js/stable";
 import "regenerator-runtime/runtime";
-import { ObjectID } from 'mongodb';
+import {ObjectID} from 'mongodb';
 import TestDbHelper from "../app/testUtils/testDbHelper";
 import Transaction from "../server/models/Transaction";
 import createSampleTransactions from "../app/testUtils/createSampleTransactions";

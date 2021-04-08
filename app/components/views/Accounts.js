@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
-import {Box, Heading, Text, Flex,} from 'rebass';
+import React from 'react';
+import {connect} from 'react-redux';
+import {Box, Heading, Text,} from 'rebass';
 import {selectAccounts, selectActivatedForMonth, selectIncome} from "../../reducers";
 import Navbar from "../Navbar";
 import PaperBox from "../styled-components/PaperBox";
 import TwoColRow from "../styled-components/TwoColRow";
 import ToDollars from "../styled-components/ToDollars";
-import DollarInput from "../styled-components/DollarInput";
 import {toDollars} from "../../utility";
 
 const mapStateToProps = state => {

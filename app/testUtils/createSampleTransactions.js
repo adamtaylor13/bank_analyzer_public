@@ -1,4 +1,5 @@
-import { ObjectID } from 'mongodb';
+import {ObjectID} from 'mongodb';
+
 export default async function createSampleTransactions(dbHelper) {
     const regularTransaction = await dbHelper.createDoc('transactions', {
         account_id : "yMRMAYqV8mTM8bb5vDEjHyoy3PzE5XfO83yKO",

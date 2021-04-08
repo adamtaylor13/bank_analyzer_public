@@ -1,6 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
+import {connect} from 'react-redux';
+import {compose} from 'redux';
 import {selectTransactions} from "../../reducers";
 
 const mapStateToProps = state => {

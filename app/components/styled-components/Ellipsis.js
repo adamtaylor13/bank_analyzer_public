@@ -1,12 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import {
-    Box,
-    Card,
-    Image,
-    Heading,
-    Text,
-    Flex
-} from 'rebass';
+import React from 'react';
+import {Box} from 'rebass';
 
 
 const Ellipsis = (props) => {

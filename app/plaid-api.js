@@ -10,6 +10,7 @@ export default class Plaid {
         this.PLAID_SECRET = process.env.PLAID_SECRET;
         this.PLAID_ENV = envvar.string('PLAID_ENV', 'development');
         this.PLAID_PRODUCTS = envvar.string('PLAID_PRODUCTS', 'transactions');
+        this.PLAID_ACCESS_TOKEN = null;
 
         this.CLIENT = new plaid.Client({
             clientID: this.PLAID_CLIENT_ID,
@@ -19,32 +20,33 @@ export default class Plaid {
                 version: '2018-05-22'
             },
         });
-
-        const configs = {
-            user: {
-                // This should correspond to a unique id for the current user.
-                client_user_id: 'user-id',
-            },
-            client_name: 'Bank Analyzer',
-            products: ['transactions'],
-            country_codes: ['US'],
-            language: 'en',
-        };
-
-        let self = this;
-        this.CLIENT.createLinkToken(configs, function (error, createTokenResponse) {
-            if (error != null) {
-                // TODO: Handle it
-                console.log('error', error);
-            }
-            console.log('createTokenResponse', createTokenResponse);
-            self.PLAID_ACCESS_TOKEN = createTokenResponse.link_token;
-        });
     }
 
-    getAccountsFromAPI() {
-        return new Promise((resolve, reject) => {
-            this.CLIENT.getAccounts(this.PLAID_ACCESS_TOKEN, async function(error, result) {
+    async getAccessToken() {
+        const self = this;
+
+        return self.PLAID_ACCESS_TOKEN ? self.PLAID_ACCESS_TOKEN : // Use fetched token if we have it
+            new Promise(async (resolve, reject) => {
+                try {
+                    const publicTokenResponse = await this.CLIENT.sandboxPublicTokenCreate('ins_109508', ['transactions']);
+                    const publicToken = publicTokenResponse.public_token;
+
+                    // The generated public_token can now be exchanged for an access_token
+                    const exchangeTokenResponse = await this.CLIENT.exchangePublicToken(publicToken);
+                    const accessToken = exchangeTokenResponse.access_token;
+                    self.PLAID_ACCESS_TOKEN = accessToken;
+                    resolve(accessToken);
+                } catch (err) {
+                    console.error('Error while fetching access_token:', err);
+                    reject(err);
+                }
+            });
+    }
+
+    async getAccountsFromAPI() {
+        return new Promise(async (resolve, reject) => {
+            let accessToken = await this.getAccessToken();
+            this.CLIENT.getAccounts(accessToken, async function(error, result) {
                 if (error != null) {
                     reject(error);
                 } else {
@@ -57,12 +59,13 @@ export default class Plaid {
         });
     }
 
-    fetchTransactions(count = 250) {
+    async fetchTransactions(count = 250) {
         const startYear = moment().startOf('year').subtract(5, 'years').format('YYYY-MM-DD');
         const endDate = moment().format('YYYY-MM-DD'); // Today
 
-        return new Promise((resolve, reject) => {
-            this.CLIENT.getTransactions(this.PLAID_ACCESS_TOKEN, startYear, endDate, {
+        return new Promise(async (resolve, reject) => {
+            let accessToken = await this.getAccessToken();
+            this.CLIENT.getTransactions(accessToken, startYear, endDate, {
                 count: count,
                 offset: 0,
             }, async function(error, transactionsResponse) {

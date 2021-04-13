@@ -20,7 +20,7 @@ import {
     SET_METADATA,
     SET_MOBILE_VIEW,
     SET_TRANSACTIONS,
-    SET_TRANSACTIONS_IN_PROGRESS,
+    SET_TRANSACTIONS_IN_PROGRESS, TOGGLE_FILTER,
     UPDATE_CATEGORY_SUCCESS,
     UPDATE_TRANSACTION_SUCCESS,
     UPDATE_TRANSACTION_SUCCESS_MULTI
@@ -118,6 +118,9 @@ function filters(state = Filters, action) {
             return { ...state, [action.filterName]: { ...Filters[action.filterName], active: true } };
         case DEACTIVATE_FILTER:
             return { ...state, [action.filterName]: { ...Filters[action.filterName], active: false } };
+        case TOGGLE_FILTER:
+            let toggle = !state[action.filterName].active;
+            return { ...state, [action.filterName]: { ...Filters[action.filterName], active: toggle } };
         case DEACTIVATE_ALL_FILTERS:
             return Filters;
         default:

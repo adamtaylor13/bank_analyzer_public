@@ -91,9 +91,9 @@ initDB().then(async () => {
     }
 
     // Set for demoing purposes — not real logic
-    await Metadata.setTimeperiodFilter('2019-06');
+    await Metadata.setTimeperiodFilter('2019-06'); // TODO: Remove and fix filtered timeperiod
 
-    const host = process.env.PORT ? '0.0.0.0' : 'localhost';
+    const host = process.env.PORT ? '0.0.0.0' : 'localhost'; // This might be wrong if not hosting on Heroku
     console.log('port', port);
     console.log('host', host);
     app.listen(port, host, () => console.log(`Listening on port ${port}!`));

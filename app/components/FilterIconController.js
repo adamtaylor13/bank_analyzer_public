@@ -7,9 +7,11 @@ import theme from "../theme";
 import Button from "./styled-components/Button";
 import {selectFilters, selectUserSelectedTimeperiod} from "../reducers";
 import DatePicker from "./DatePicker";
+import {toggleFilter} from "../actions/actions";
 
 // TODO: This is really clean, we should organize like this in more places
 const FilterIconController = (props) => {
+    const { dispatch } = props;
     const [showFilterDropdown, setShowFilterDropdown] = React.useState(false);
     const [showDatePicker, setShowDatePicker] = React.useState(false);
 
@@ -25,11 +27,9 @@ const FilterIconController = (props) => {
         minWidth: 250,
     };
 
-    const FlexIt = ({ children }) => {
+    const FlexIt = (props) => {
         return (
-            <Flex justifyContent={'space-between'} alignItems={'center'} p={2}>
-                { children }
-            </Flex>
+            <Flex justifyContent={'space-between'} alignItems={'center'} p={2} { ...props } />
         );
     };
 
@@ -65,17 +65,17 @@ const FilterIconController = (props) => {
                     </Button>
                 </Flex>
 
-                { Object.keys(props.filters).map((f, i) => (
+                { Object.keys(props.filters).map((filterKey, i) => (
                     <Box key={i} className={'dropdown-filter-item'} sx={dropdownFilterItemSX}>
-                        { props.filters[f].active ? (
-                            <FlexIt>
+                        { props.filters[filterKey].active ? (
+                            <FlexIt onClick={() => dispatch(toggleFilter(filterKey))}>
                                 <Icon icon='check-circle' size='2x' color='tangelo' />
-                                { props.filters[f].label }
+                                { props.filters[filterKey].label }
                             </FlexIt>
                         ) : (
-                            <FlexIt>
+                            <FlexIt onClick={() => dispatch(toggleFilter(filterKey))}>
                                 <Icon icon='circle' prefix='far' size='2x' color='white' />
-                                { props.filters[f].label }
+                                { props.filters[filterKey].label }
                             </FlexIt>
                         ) }
                     </Box>

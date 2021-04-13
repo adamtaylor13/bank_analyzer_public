@@ -17,7 +17,7 @@ import {
     SET_FUNDS,
     SET_METADATA,
     SET_MOBILE_VIEW,
-    SET_TRANSACTIONS,
+    SET_TRANSACTIONS, TOGGLE_FILTER,
     UPDATE_CATEGORY_SUCCESS,
     UPDATE_TRANSACTION_SUCCESS,
     UPDATE_TRANSACTION_SUCCESS_MULTI
@@ -41,6 +41,10 @@ export function activateFilter(filterName) {
 
 export function deactivateFilter(filterName) {
     return { type: DEACTIVATE_FILTER, filterName }
+}
+
+export function toggleFilter(filterName) {
+    return { type: TOGGLE_FILTER, filterName }
 }
 
 export function deactivateAllFilters() {
